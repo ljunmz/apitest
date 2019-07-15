@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="7" name="pytest" skipped="0" tests="12" time="6.415"><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="24" name="test_validateUserNewOrOld[caseInfo0]" time="0.098"></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="24" name="test_validateUserNewOrOld[caseInfo1]" time="0.144"></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="24" name="test_validateUserNewOrOld[caseInfo2]" time="0.117"></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="24" name="test_validateUserNewOrOld[caseInfo3]" time="0.063"><failure message="AssertionError: assert &apos;validate.mobile.notnull&apos; == &apos;请输入正确手机号！&apos;
+  - validate.mobile.notnull
+  + 请输入正确手机号！">caseInfo = {&apos;code&apos;: 601, &apos;data&apos;: &apos;{}&apos;, &apos;header&apos;: &apos;{}&apos;, &apos;json&apos;: &apos;{&quot;mobile&quot;:&quot;&quot;}&apos;, ...}
+
+    @pytest.mark.parametrize(&apos;caseInfo&apos;, getTestCase(&quot;test_validateUserNewOrOld&quot;, &apos;baseUser&apos;))
+    def test_validateUserNewOrOld(caseInfo):
+        print()
+        print(&quot;测试项：&quot; + caseInfo[&quot;title&quot;])
+        print(&quot;请求参数：&quot; + caseInfo[&quot;json&quot;])
+    
+        &quot;&quot;&quot;参数组装&quot;&quot;&quot;
+        print(&quot;请求参数&quot; + caseInfo[&quot;json&quot;])
+        url = &apos;http://47.112.0.183:8801&apos; + caseInfo[&quot;url&quot;]
+        datas = json.loads(caseInfo[&quot;data&quot;])
+        jsons = json.loads(caseInfo[&quot;json&quot;])
+        header = json.loads(caseInfo[&quot;header&quot;])
+        method = caseInfo[&quot;method&quot;]
+        msg = caseInfo[&quot;msg&quot;]
+        code = caseInfo[&quot;code&quot;]
+    
+        &quot;&quot;&quot;接口请求&quot;&quot;&quot;
+        r = doRequest(method, url, datas, jsons, header)
+        print(&quot;接口返回值：&quot; + r)
+        re = json.loads(r)
+    
+        &quot;&quot;&quot;结果校验&quot;&quot;&quot;
+&gt;       assert re[&quot;msg&quot;] == msg
+E       AssertionError: assert &apos;validate.mobile.notnull&apos; == &apos;请输入正确手机号！&apos;
+E         - validate.mobile.notnull
+E         + 请输入正确手机号！
+
+action\test_baseUser.py:47: AssertionError</failure></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="51" name="test_everydayMottoInsert[caseInfo0]" time="0.275"></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="76" name="test_login[caseInfo0]" time="0.157"><failure message="AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;操作成功&apos;
+  - 用户不存在,请先注册
+  + 操作成功">caseInfo = {&apos;code&apos;: 200, &apos;data&apos;: &apos;{}&apos;, &apos;header&apos;: &apos;{}&apos;, &apos;json&apos;: &apos;{&quot;password&quot;:&quot;123456&quot;,&quot;appType&quot;:&quot;1&quot;,&quot;mobile&quot;:&quot;13300000000&quot;,&quot;type&quot;:...&quot;deviceModel&quot;:&quot;Meizu-16th Plus&quot;,&quot;channelName&quot;:&quot;android&quot;,&quot;channelType&quot;:&quot;sgx&quot;,&quot;deviceTagApp&quot;:&quot;90:f0:52:5d:75:a4&quot;}}&apos;, ...}
+
+    @pytest.mark.parametrize(&apos;caseInfo&apos;, getTestCase(&quot;test_login&quot;, &apos;apitest&apos;))
+    def test_login(caseInfo):
+        print()
+        print(&quot;测试项：&quot; + caseInfo[&quot;title&quot;])
+        print(&quot;请求参数：&quot; + caseInfo[&quot;json&quot;])
+    
+        &quot;&quot;&quot;参数组装&quot;&quot;&quot;
+        url = caseInfo[&quot;url&quot;]
+        datas = json.loads(caseInfo[&quot;data&quot;])
+        jsons = json.loads(caseInfo[&quot;json&quot;])
+        header = json.loads(caseInfo[&quot;header&quot;])
+        method = caseInfo[&quot;method&quot;]
+        msg = caseInfo[&quot;msg&quot;]
+        code = caseInfo[&quot;code&quot;]
+    
+        &quot;&quot;&quot;接口请求&quot;&quot;&quot;
+        r = doRequest(method, url, datas, jsons, header)
+        print(&quot;接口返回值：&quot; + r)
+        re = json.loads(r)
+    
+        &quot;&quot;&quot;结果校验&quot;&quot;&quot;
+&gt;       assert re[&quot;msg&quot;] == msg
+E       AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;操作成功&apos;
+E         - 用户不存在,请先注册
+E         + 操作成功
+
+action\test_baseUser.py:98: AssertionError</failure></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="76" name="test_login[caseInfo1]" time="0.164"><failure message="AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;操作成功&apos;
+  - 用户不存在,请先注册
+  + 操作成功">caseInfo = {&apos;code&apos;: 200, &apos;data&apos;: &apos;{}&apos;, &apos;header&apos;: &apos;{}&apos;, &apos;json&apos;: &apos;{&quot;password&quot;:&quot;123456&quot;,&quot;appType&quot;:&quot;1&quot;,&quot;mobile&quot;:&quot;test@qq.com&quot;,&quot;type&quot;:...&quot;deviceModel&quot;:&quot;Meizu-16th Plus&quot;,&quot;channelName&quot;:&quot;android&quot;,&quot;channelType&quot;:&quot;sgx&quot;,&quot;deviceTagApp&quot;:&quot;90:f0:52:5d:75:a4&quot;}}&apos;, ...}
+
+    @pytest.mark.parametrize(&apos;caseInfo&apos;, getTestCase(&quot;test_login&quot;, &apos;apitest&apos;))
+    def test_login(caseInfo):
+        print()
+        print(&quot;测试项：&quot; + caseInfo[&quot;title&quot;])
+        print(&quot;请求参数：&quot; + caseInfo[&quot;json&quot;])
+    
+        &quot;&quot;&quot;参数组装&quot;&quot;&quot;
+        url = caseInfo[&quot;url&quot;]
+        datas = json.loads(caseInfo[&quot;data&quot;])
+        jsons = json.loads(caseInfo[&quot;json&quot;])
+        header = json.loads(caseInfo[&quot;header&quot;])
+        method = caseInfo[&quot;method&quot;]
+        msg = caseInfo[&quot;msg&quot;]
+        code = caseInfo[&quot;code&quot;]
+    
+        &quot;&quot;&quot;接口请求&quot;&quot;&quot;
+        r = doRequest(method, url, datas, jsons, header)
+        print(&quot;接口返回值：&quot; + r)
+        re = json.loads(r)
+    
+        &quot;&quot;&quot;结果校验&quot;&quot;&quot;
+&gt;       assert re[&quot;msg&quot;] == msg
+E       AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;操作成功&apos;
+E         - 用户不存在,请先注册
+E         + 操作成功
+
+action\test_baseUser.py:98: AssertionError</failure></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="76" name="test_login[caseInfo2]" time="0.124"><failure message="AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;请输入正确的手机号或邮箱&apos;
+  - 用户不存在,请先注册
+  + 请输入正确的手机号或邮箱">caseInfo = {&apos;code&apos;: 5009024, &apos;data&apos;: &apos;{}&apos;, &apos;header&apos;: &apos;{}&apos;, &apos;json&apos;: &apos;{&quot;password&quot;:&quot;123456&quot;,&quot;appType&quot;:&quot;1&quot;,&quot;mobile&quot;:&quot;18800000000&quot;,&quot;ty...&quot;deviceModel&quot;:&quot;Meizu-16th Plus&quot;,&quot;channelName&quot;:&quot;android&quot;,&quot;channelType&quot;:&quot;sgx&quot;,&quot;deviceTagApp&quot;:&quot;90:f0:52:5d:75:a4&quot;}}&apos;, ...}
+
+    @pytest.mark.parametrize(&apos;caseInfo&apos;, getTestCase(&quot;test_login&quot;, &apos;apitest&apos;))
+    def test_login(caseInfo):
+        print()
+        print(&quot;测试项：&quot; + caseInfo[&quot;title&quot;])
+        print(&quot;请求参数：&quot; + caseInfo[&quot;json&quot;])
+    
+        &quot;&quot;&quot;参数组装&quot;&quot;&quot;
+        url = caseInfo[&quot;url&quot;]
+        datas = json.loads(caseInfo[&quot;data&quot;])
+        jsons = json.loads(caseInfo[&quot;json&quot;])
+        header = json.loads(caseInfo[&quot;header&quot;])
+        method = caseInfo[&quot;method&quot;]
+        msg = caseInfo[&quot;msg&quot;]
+        code = caseInfo[&quot;code&quot;]
+    
+        &quot;&quot;&quot;接口请求&quot;&quot;&quot;
+        r = doRequest(method, url, datas, jsons, header)
+        print(&quot;接口返回值：&quot; + r)
+        re = json.loads(r)
+    
+        &quot;&quot;&quot;结果校验&quot;&quot;&quot;
+&gt;       assert re[&quot;msg&quot;] == msg
+E       AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;请输入正确的手机号或邮箱&apos;
+E         - 用户不存在,请先注册
+E         + 请输入正确的手机号或邮箱
+
+action\test_baseUser.py:98: AssertionError</failure></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="76" name="test_login[caseInfo3]" time="0.113"><failure message="AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;请输入正确的手机号或邮箱&apos;
+  - 用户不存在,请先注册
+  + 请输入正确的手机号或邮箱">caseInfo = {&apos;code&apos;: 5009024, &apos;data&apos;: &apos;{}&apos;, &apos;header&apos;: &apos;{}&apos;, &apos;json&apos;: &apos;{&quot;password&quot;:&quot;123456&quot;,&quot;appType&quot;:&quot;1&quot;,&quot;mobile&quot;:&quot;test1@qq.com&quot;,&quot;t...&quot;deviceModel&quot;:&quot;Meizu-16th Plus&quot;,&quot;channelName&quot;:&quot;android&quot;,&quot;channelType&quot;:&quot;sgx&quot;,&quot;deviceTagApp&quot;:&quot;90:f0:52:5d:75:a4&quot;}}&apos;, ...}
+
+    @pytest.mark.parametrize(&apos;caseInfo&apos;, getTestCase(&quot;test_login&quot;, &apos;apitest&apos;))
+    def test_login(caseInfo):
+        print()
+        print(&quot;测试项：&quot; + caseInfo[&quot;title&quot;])
+        print(&quot;请求参数：&quot; + caseInfo[&quot;json&quot;])
+    
+        &quot;&quot;&quot;参数组装&quot;&quot;&quot;
+        url = caseInfo[&quot;url&quot;]
+        datas = json.loads(caseInfo[&quot;data&quot;])
+        jsons = json.loads(caseInfo[&quot;json&quot;])
+        header = json.loads(caseInfo[&quot;header&quot;])
+        method = caseInfo[&quot;method&quot;]
+        msg = caseInfo[&quot;msg&quot;]
+        code = caseInfo[&quot;code&quot;]
+    
+        &quot;&quot;&quot;接口请求&quot;&quot;&quot;
+        r = doRequest(method, url, datas, jsons, header)
+        print(&quot;接口返回值：&quot; + r)
+        re = json.loads(r)
+    
+        &quot;&quot;&quot;结果校验&quot;&quot;&quot;
+&gt;       assert re[&quot;msg&quot;] == msg
+E       AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;请输入正确的手机号或邮箱&apos;
+E         - 用户不存在,请先注册
+E         + 请输入正确的手机号或邮箱
+
+action\test_baseUser.py:98: AssertionError</failure></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="76" name="test_login[caseInfo4]" time="0.092"><failure message="AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;密码不正确&apos;
+  - 用户不存在,请先注册
+  + 密码不正确">caseInfo = {&apos;code&apos;: 5009002, &apos;data&apos;: &apos;{}&apos;, &apos;header&apos;: &apos;{}&apos;, &apos;json&apos;: &apos;{&quot;password&quot;:&quot;jcjcjvgf&quot;,&quot;appType&quot;:&quot;1&quot;,&quot;mobile&quot;:&quot;13300000000&quot;,&quot;...&quot;deviceModel&quot;:&quot;Meizu-16th Plus&quot;,&quot;channelName&quot;:&quot;android&quot;,&quot;channelType&quot;:&quot;sgx&quot;,&quot;deviceTagApp&quot;:&quot;90:f0:52:5d:75:a4&quot;}}&apos;, ...}
+
+    @pytest.mark.parametrize(&apos;caseInfo&apos;, getTestCase(&quot;test_login&quot;, &apos;apitest&apos;))
+    def test_login(caseInfo):
+        print()
+        print(&quot;测试项：&quot; + caseInfo[&quot;title&quot;])
+        print(&quot;请求参数：&quot; + caseInfo[&quot;json&quot;])
+    
+        &quot;&quot;&quot;参数组装&quot;&quot;&quot;
+        url = caseInfo[&quot;url&quot;]
+        datas = json.loads(caseInfo[&quot;data&quot;])
+        jsons = json.loads(caseInfo[&quot;json&quot;])
+        header = json.loads(caseInfo[&quot;header&quot;])
+        method = caseInfo[&quot;method&quot;]
+        msg = caseInfo[&quot;msg&quot;]
+        code = caseInfo[&quot;code&quot;]
+    
+        &quot;&quot;&quot;接口请求&quot;&quot;&quot;
+        r = doRequest(method, url, datas, jsons, header)
+        print(&quot;接口返回值：&quot; + r)
+        re = json.loads(r)
+    
+        &quot;&quot;&quot;结果校验&quot;&quot;&quot;
+&gt;       assert re[&quot;msg&quot;] == msg
+E       AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;密码不正确&apos;
+E         - 用户不存在,请先注册
+E         + 密码不正确
+
+action\test_baseUser.py:98: AssertionError</failure></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="76" name="test_login[caseInfo5]" time="0.114"></testcase><testcase classname="action.test_baseUser" file="action\test_baseUser.py" line="76" name="test_login[caseInfo6]" time="1.578"><failure message="AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;密码不正确&apos;
+  - 用户不存在,请先注册
+  + 密码不正确">caseInfo = {&apos;code&apos;: 5009002, &apos;data&apos;: &apos;{}&apos;, &apos;header&apos;: &apos;{}&apos;, &apos;json&apos;: &apos;{&quot;password&quot;:&quot;12345&quot;,&quot;appType&quot;:&quot;1&quot;,&quot;mobile&quot;:&quot;13300000000&quot;,&quot;typ...&quot;deviceModel&quot;:&quot;Meizu-16th Plus&quot;,&quot;channelName&quot;:&quot;android&quot;,&quot;channelType&quot;:&quot;sgx&quot;,&quot;deviceTagApp&quot;:&quot;90:f0:52:5d:75:a4&quot;}}&apos;, ...}
+
+    @pytest.mark.parametrize(&apos;caseInfo&apos;, getTestCase(&quot;test_login&quot;, &apos;apitest&apos;))
+    def test_login(caseInfo):
+        print()
+        print(&quot;测试项：&quot; + caseInfo[&quot;title&quot;])
+        print(&quot;请求参数：&quot; + caseInfo[&quot;json&quot;])
+    
+        &quot;&quot;&quot;参数组装&quot;&quot;&quot;
+        url = caseInfo[&quot;url&quot;]
+        datas = json.loads(caseInfo[&quot;data&quot;])
+        jsons = json.loads(caseInfo[&quot;json&quot;])
+        header = json.loads(caseInfo[&quot;header&quot;])
+        method = caseInfo[&quot;method&quot;]
+        msg = caseInfo[&quot;msg&quot;]
+        code = caseInfo[&quot;code&quot;]
+    
+        &quot;&quot;&quot;接口请求&quot;&quot;&quot;
+        r = doRequest(method, url, datas, jsons, header)
+        print(&quot;接口返回值：&quot; + r)
+        re = json.loads(r)
+    
+        &quot;&quot;&quot;结果校验&quot;&quot;&quot;
+&gt;       assert re[&quot;msg&quot;] == msg
+E       AssertionError: assert &apos;用户不存在,请先注册&apos; == &apos;密码不正确&apos;
+E         - 用户不存在,请先注册
+E         + 密码不正确
+
+action\test_baseUser.py:98: AssertionError</failure></testcase></testsuite>
